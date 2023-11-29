@@ -9,11 +9,24 @@
 #  с этого куста и с двух соседних с ним.
 # Напишите программу для нахождения максимального числа ягод, которое может собрать за один
 #  заход собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
-bush_numbers = int(input('Количество кустов = '))
-lis = [int(x) for x in input('Введите количество  ягод на кустах через пробел:').split()]
-bush_numbers = len(lis)
-lis = lis + lis[:2]
-a = 0
-for i in range(bush_numbers):
-    a = max(a, lis[i] + lis[i + 1] + lis[i + 2])
-print(a)
+# bush_numbers = int(input('Количество кустов = '))
+# lis = [int(x) for x in input('Введите количество  ягод на кустах через пробел:').split()]
+# bush_numbers = len(lis)
+# lis = lis + lis[:2]
+# a = 0
+# for i in range(bush_numbers):
+#     a = max(a, lis[i] + lis[i + 1] + lis[i + 2])
+# print(a)
+stroka = ['а', 'е', 'ё', 'и', 'й', 'о', 'у', 'ы', 'э', 'ю', 'я']
+phrases = stroka.split()
+if len(phrases) < 2:
+    print('Количество фраз должно быть больше одной!')
+else:
+    countStroka = []
+for i in phrases:
+    countStroka.append(len([x for x in i if x.lower() in stroka]))
+
+if countStroka.count(countStroka[0]) == len(countStroka):
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
